@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Izone</string>
+    <string name="member_name">Nama Member</string>
+    <string name="detail">Detail</string>
+    <string name="namaku">Murpy Satriya Nugraha</string>
+    <string name="emailku">murpy.simdig25@gmail.com</string>
+    <string name="grid">Grid</string>
+    <string name="list">List</string>
+</resources>

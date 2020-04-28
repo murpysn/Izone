@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MemberDetail">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="16dp"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/foto"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:src="@android:color/darker_gray"
+        android:foregroundGravity="center" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:layout_toRightOf="@id/foto"
+        android:layout_toEndOf="@id/foto">
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_marginBottom="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/izonelogo"/>
+    <TextView
+        android:id="@+id/nama"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/member_name"
+        android:textStyle="bold"
+        android:textSize="30sp" />
+    <View
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:background="@color/pinkdark"
+        android:layout_height="5dp"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/detail"
+        android:layout_below="@id/foto"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/detail"
+        android:textSize="20sp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:layout_gravity="center"/>
+
+</RelativeLayout>
+    </ScrollView>
+</LinearLayout>

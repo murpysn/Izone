@@ -1,0 +1,67 @@
+package com.example.izone;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.example.izone.Member;
+import com.example.izone.R;
+
+import java.util.ArrayList;
+
+public class GridMemberAdapter extends RecyclerView.Adapter<GridMemberAdapter.GridViewHolder> {
+    private ArrayList<Member> listMember;
+    private OnItemClickCallback onItemClickCallback;
+
+    public GridMemberAdapter(ArrayList<Member> list) {
+        this.listMember = list;
+    }
+
+    @NonNull
+    @Override
+    public GridViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_grid_member, viewGroup, false);
+        return new GridViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull final GridViewHolder holder, int position) {
+        Glide.with(holder.itemView.getContext())
+                .load(listMember.get(position).getPhoto())
+                .apply(new RequestOptions().override(350, 550))
+                .into(holder.imgPhoto);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClickCallback.onItemClicked(listMember.get(holder.getAdapterPosition()));
+            }
+        });
+    }
+
+    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback;
+    }
+
+    public interface OnItemClickCallback {
+        void onItemClicked(Member data);
+    }
+    @Override
+    public int getItemCount() {
+        return listMember.size();
+    }
+
+    class GridViewHolder extends RecyclerView.ViewHolder {
+        ImageView imgPhoto;
+
+        GridViewHolder(View itemView) {
+            super(itemView);
+            imgPhoto = itemView.findViewById(R.id.img_item_photo);
+        }
+    }
+}
